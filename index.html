@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜单搜索器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 背景装饰 -->
+    <div class="bg-pattern"></div>
+
+    <div class="app-container">
+        <!-- 头部 -->
+        <header class="app-header">
+            <div class="header-content">
+                <div class="logo">🍽️</div>
+                <h1>菜单搜索器</h1>
+                <p class="subtitle">快速搜索你喜欢的菜品</p>
+            </div>
+        </header>
+
+        <!-- 搜索区域 -->
+        <div class="search-section">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="searchInput" placeholder="输入菜名、食材或分类..." autocomplete="off">
+                <button class="clear-btn" id="clearBtn" title="清空搜索">✕</button>
+            </div>
+
+            <!-- 分类筛选 -->
+            <div class="filter-bar">
+                <button class="filter-btn active" data-category="all">全部</button>
+                <button class="filter-btn" data-category="川菜">🌶️ 川菜</button>
+                <button class="filter-btn" data-category="粤菜">🍜 粤菜</button>
+                <button class="filter-btn" data-category="鲁菜">🥘 鲁菜</button>
+                <button class="filter-btn" data-category="苏菜">🍲 苏菜</button>
+                <button class="filter-btn" data-category="浙菜">🐟 浙菜</button>
+                <button class="filter-btn" data-category="闽菜">🦐 闽菜</button>
+                <button class="filter-btn" data-category="湘菜">🔥 湘菜</button>
+                <button class="filter-btn" data-category="徽菜">🥬 徽菜</button>
+                <button class="filter-btn" data-category="家常菜">🏠 家常菜</button>
+            </div>
+
+            <!-- 排序 -->
+            <div class="sort-bar">
+                <span class="sort-label">排序:</span>
+                <button class="sort-btn active" data-sort="default">默认</button>
+                <button class="sort-btn" data-sort="name">菜名 A-Z</button>
+                <button class="sort-btn" data-sort="time">制作时间</button>
+                <button class="sort-btn" data-sort="difficulty">难度</button>
+            </div>
+        </div>
+
+        <!-- 统计信息 -->
+        <div class="stats-bar">
+            <span class="stats-item">共 <strong id="totalCount">0</strong> 道菜</span>
+            <span class="stats-divider">|</span>
+            <span class="stats-item">找到 <strong id="resultCount">0</strong> 个结果</span>
+        </div>
+
+        <!-- 菜品列表 -->
+        <main class="dish-grid" id="dishGrid">
+            <!-- JS 动态渲染 -->
+        </main>
+
+        <!-- 无结果提示 -->
+        <div class="no-results" id="noResults">
+            <div class="no-results-icon">🍽️</div>
+            <h3>没有找到相关菜品</h3>
+            <p>试试换个关键词,或者清空搜索条件</p>
+            <button class="reset-btn" id="resetBtn">重置筛选</button>
+        </div>
+
+        <!-- 菜品详情弹窗 -->
+        <div class="modal-overlay" id="dishModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modalName">菜品名称</h2>
+                    <button class="close-btn" id="closeModal">✕</button>
+                </div>
+                <div class="modal-body">
+                    <div class="dish-emoji" id="modalEmoji">🍽️</div>
+                    <div class="dish-info">
+                        <div class="info-row">
+                            <span class="info-label">分类:</span>
+                            <span class="info-value category-tag" id="modalCategory">-</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">难度:</span>
+                            <span class="info-value difficulty-tag" id="modalDifficulty">-</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">制作时间:</span>
+                            <span class="info-value" id="modalTime">-</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">主要食材:</span>
+                            <span class="info-value" id="modalIngredients">-</span>
+                        </div>
+                    </div>
+                    <div class="dish-steps">
+                        <h4>做法步骤</h4>
+                        <ol id="modalSteps"></ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 页脚 -->
+        <footer class="app-footer">
+            <p>🍴 菜单搜索器 - 帮你快速找到想吃的菜</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
